@@ -1,110 +1,110 @@
 class Node {
   constructor(value) {
-    this.value = value;
-    this.next = null;
+    this.value = value
+    this.next = null
   }
 }
 
 class LinkedList {
   constructor() {
-    this.head = null;
-    this.tail = null;
-    this.count = 0;
+    this.head = null
+    this.tail = null
+    this.count = 0
   }
 
   insertTail(val) {
-    const newNode = new Node(val);
+    const newNode = new Node(val)
 
     if (this.head === null) {
-      this.head = newNode;
-      this.tail = newNode;
+      this.head = newNode
+      this.tail = newNode
     } else {
       // 1 -> 2
-      this.tail.next = newNode;
-      this.tail = newNode;
+      this.tail.next = newNode
+      this.tail = newNode
     }
-    this.count++;
+    this.count++
   }
 
   removeTail() {
     // 1 -> 2 -> 3 -> null
-    let currentNode = this.head;
-    let prevNode = null;
+    let currentNode = this.head
+    let prevNode = null
     while (currentNode.next !== null) {
-      prevNode = currentNode;
-      currentNode = currentNode.next;
+      prevNode = currentNode
+      currentNode = currentNode.next
     }
     // T
     // 1 -> 2 -> null
-    prevNode.next = null;
-    this.tail = prevNode;
-    this.count--;
+    prevNode.next = null
+    this.tail = prevNode
+    this.count--
   }
 
   insertHead(val) {
-    const newNode = new Node(val);
+    const newNode = new Node(val)
     // 0 ->
     //      1 -> 2 -> 3
-    newNode.next = this.head;
-    this.head = newNode;
-    this.count++;
+    newNode.next = this.head
+    this.head = newNode
+    this.count++
   }
 
   removeHead() {
     if (this.head === null) {
-      return;
+      return
     }
     // biến đổi 1 -> 2 -> 3 thành 2 -> 3
-    this.head = this.head.next;
-    this.count--;
+    this.head = this.head.next
+    this.count--
   }
 
   getByIndex(index) {
     if (index < 0) {
-      return null;
+      return null
     }
     // .............
     // Ta có dãy số: 1 -> 2 -> 3 -> 4
     // getByIndex(2) -> index: 2 ==> return 3
     // Lưu ý: mình đang so sánh với số 2. Cho nên đến số 2 count không thể bé hơn 2 nên nó thoát vòng lặp
-    let count = 0;
-    let currentNode = this.head; // 1
+    let count = 0
+    let currentNode = this.head // 1
     while (count < index) {
-      currentNode = currentNode.next; // 2 // 3
-      count++; // 1 // 2
+      currentNode = currentNode.next // 2 // 3
+      count++ // 1 // 2
     }
-    return currentNode;
+    return currentNode
   }
 
   insertAfter(index, val) {
-    const newNode = new Node(val);
+    const newNode = new Node(val)
     // Ta có dãy số: 1 -> 2 -> 3 -> 4
     // Giả sử ta insertAfter(1, 2.5) => thì ta sẽ nhận được dãy số: 1 -> 2 -> 2.5 -> 3 -> 4
     // 1 -> 2        -> 3 -> 4
     //        -> 2.5
-    const currentNode = this.getByIndex(index);
-    const nextNode = this.getByIndex(index + 1);
+    const currentNode = this.getByIndex(index)
+    const nextNode = this.getByIndex(index + 1)
 
-    currentNode.next = newNode;
-    newNode.next = nextNode;
+    currentNode.next = newNode
+    newNode.next = nextNode
   }
 
   insertBefore(index, val) {
-    const newNode = new Node(val);
+    const newNode = new Node(val)
     // Ta có dãy số: 1 -> 2 -> 3 -> 4
     // Giả sử ta insertBefore(1, 1.5) => thì ta sẽ nhận được dãy số: 1 -> 1.5 -> 2 -> 3 -> 4
-    const currentNode = this.getByIndex(index);
-    const prevNode = this.getByIndex(index - 1);
+    const currentNode = this.getByIndex(index)
+    const prevNode = this.getByIndex(index - 1)
 
-    prevNode.next = newNode;
-    newNode.next = currentNode;
+    prevNode.next = newNode
+    newNode.next = currentNode
   }
 }
 
-const list = new LinkedList();
-list.insertTail(1);
-list.insertTail(2);
-list.insertTail(3);
-list.insertTail(4);
+const list = new LinkedList()
+list.insertTail(1)
+list.insertTail(2)
+list.insertTail(3)
+list.insertTail(4)
 // T
 // 1 -> 2 -> 3 -> 4

@@ -17,24 +17,24 @@ let numbers = [2, 7, 11, 15]
 let target = 9
 
 let twoSum = function (nums, target) {
-	let map = [],
-		result = []
+  let map = [],
+    result = []
 
-	if (nums === null || nums.length === 0) {
-		return result
-	}
+  if (nums === null || nums.length === 0) {
+    return result
+  }
 
-	for (let i = 0; i < nums.length; i++) {
-		if (map[nums[i]] != null) {
-			result[0] = map[nums[i]]
-			result[1] = i
-			break
-		} else {
-			map[target - nums[i]] = i
-		}
-	}
+  for (let i = 0; i < nums.length; i++) {
+    if (map[nums[i]] != null) {
+      result[0] = map[nums[i]]
+      result[1] = i
+      break
+    } else {
+      map[target - nums[i]] = i
+    }
+  }
 
-	return result
+  return result
 }
 
 console.time(`Testing:`)
