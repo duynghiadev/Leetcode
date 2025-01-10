@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -34,4 +36,25 @@ func findBottomLeftValue(root *TreeNode) int {
 		}
 	}
 	return res
+}
+
+func main() {
+	// Example tree:
+	//        2
+	//       / \
+	//      1   3
+	// The bottom-left value is 1.
+
+	root := &TreeNode{
+		Val: 2,
+		Left: &TreeNode{
+			Val: 1,
+		},
+		Right: &TreeNode{
+			Val: 3,
+		},
+	}
+
+	result := findBottomLeftValue(root)
+	fmt.Println("Bottom-left value:", result) // Output: 1
 }
