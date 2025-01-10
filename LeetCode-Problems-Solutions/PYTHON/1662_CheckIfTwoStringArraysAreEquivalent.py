@@ -8,16 +8,18 @@ class Solution(object):
         :type word2: List[str]
         :rtype: bool
         """
-        str1 = ""
-        str2 = ""
-        
-        # Create a single string of all elements in array 1 
-        for i in word1:
-            str1 += i
-            
-        # similarly in array 2
-        for i in word2:
-            str2 += i
-            
-        # check if both are equal or not
-        return (str1 == str2)
+        # Join the lists into single strings and compare
+        return ''.join(word1) == ''.join(word2)
+
+# Test case
+word1 = ["abc", "def"]
+word2 = ["abc", "def"]
+word3 = ["ab", "cdef"]
+
+solution = Solution()
+
+# Test with word1 and word2
+print(solution.arrayStringsAreEqual(word1, word2))  # Should print True
+
+# Test with word1 and word3
+print(solution.arrayStringsAreEqual(word1, word3))  # Should print False

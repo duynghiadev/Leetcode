@@ -9,31 +9,25 @@ class Solution:
         if len(dominoes) == 1:  # If there is only one domino
             return dominoes
 
-        while prevString != current:
+        while prevString != current:  # Keep simulating until no changes
             prevString = current
-            current = ""
+            current = list(prevString)  # Convert string to list to modify it
+
             for i in range(len(dominoes)):
+                if prevString[i] == ".":
+                    # If current domino is "." and adjacent ones have forces applied
+                    if i > 0 and prevString[i - 1] == "R" and (i == len(dominoes) - 1 or prevString[i + 1] != "L"):
+                        current[i] = "R"  # Apply force towards right
+                    elif i < len(dominoes) - 1 and prevString[i + 1] == "L" and prevString[i - 1] != "R":
+                        current[i] = "L"  # Apply force towards left
+                # If the current domino is either "R" or "L", no change needed
 
-                if i != 0 and i != len(prevString) - 1:
-                    if prevString[i] == ".":
-                        if prevString[i-1] == "R" and prevString[i+1] != "L":  # "R.." or "R.R" -- in both cases it will expend force on ith domino towards right
-                            current += "R"                  
-                        elif prevString[i+1] == "L" and prevString[i-1] != "R": # "..L" or "L.L" -- in both cases it will expend force on ith domino towards left
-                            current += "L"                  
-                        else:
-                            current += "."                  # neither right nor left
-                    else:
-                        current += prevString[i]
-                elif i == 0:
-                    if prevString[0] == "." and prevString[i+1] == "L": # ".L" -- resultant force will be towards left
-                        current += "L"
-                    else:  
-                        current += prevString[0]
-
-                elif i == len(prevString)-1:   
-                    if prevString[i] == "." and prevString[i-1] == "R":  # "R." -- resultant force will be towards right
-                        current += "R"
-                    else:
-                        current += prevString[i]
+            current = "".join(current)  # Convert the list back to a string
 
         return current
+
+# Example Test Case
+s = Solution()
+dominoes = "RR.L"
+result = s.pushDominoes(dominoes)
+print(result)  # Expected Output: "RR.L"
