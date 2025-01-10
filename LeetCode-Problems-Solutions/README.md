@@ -1,3 +1,11 @@
+run code python
+
+```bash
+python3 file_code
+```
+
+---
+
 https://github.com/tanyagupta0201/LeetCode-Problems-Solutions
 
 # LeetCode-Problems-Solutions
@@ -15,19 +23,19 @@ https://github.com/tanyagupta0201/LeetCode-Problems-Solutions
 
 # Guidelines
 
-0. Contribute a LeetCode Problem. 
+0. Contribute a LeetCode Problem.
 
-1. Always create an issue before making a Pull Request. 
+1. Always create an issue before making a Pull Request.
 
 2. Make a Pull Request only after the issue has been assigned to you by the owner. Otherwise, your PR will be closed automatically.
 
-3. Write the issue number while creating a Pull Request. 
+3. Write the issue number while creating a Pull Request.
 
-   Example: Write ````#30```` if the issue number of that problem is 30.
+   Example: Write `#30` if the issue number of that problem is 30.
 
 4. The Program should be executable, with 0 errors and proper documentation.
 
-5. Codes are only allowed in C++, Java and Python. 
+5. Codes are only allowed in C++, Java and Python.
 
 6. Do not add a code if it exists already.
 
@@ -41,22 +49,20 @@ https://github.com/tanyagupta0201/LeetCode-Problems-Solutions
    </p>
 
 9. Filename should follow the order
-       ````ProblemNumber_ProblemName.extension````
+   `ProblemNumber_ProblemName.extension`
    If there are 2 or more than 2 words than the first letter of each word must be capital.
-  
-      Example:   ````1_TwoSum.cpp````
-       
+
+   Example: `1_TwoSum.cpp`
+
 10. Don't spam it will be rejected immediately.
 
 ## **YOU MAY USE THESE LINKS TO FORMAT YOUR CODE**
 
-C++ FORMATTER    :  https://codebeautify.org/cpp-formatter-beautifier
+C++ FORMATTER : https://codebeautify.org/cpp-formatter-beautifier
 
-JAVA FORMATTER   :  https://codebeautify.org/javaviewer
+JAVA FORMATTER : https://codebeautify.org/javaviewer
 
-PYTHON FORMATTER :  https://codebeautify.org/python-formatter-beautifier
-
-
+PYTHON FORMATTER : https://codebeautify.org/python-formatter-beautifier
 
 # Steps For Contribution
 
@@ -65,16 +71,19 @@ PYTHON FORMATTER :  https://codebeautify.org/python-formatter-beautifier
 1. Fork <a href="https://github.com/tanyagupta0201/LeetCode-Problems-Solutions" title="this">this</a> repository.
 
 2. Clone the forked repository.
+
 ```css
 git clone https://github.com/<your-github-username>/LeetCode-Problems-Solutions
 ```
-  
+
 3. Navigate to the project directory.
+
 ```py
 cd LeetCode-Problems-Solutions
 ```
 
 4. Create a new branch.
+
 ```css
 git checkout -b <your_branch_name>
 ```
@@ -82,6 +91,7 @@ git checkout -b <your_branch_name>
 5. Make changes.
 
 6. Stage your changes and commit
+
 ```css
 git add -A
 
@@ -89,6 +99,7 @@ git commit -m "<your_commit_message>"
 ```
 
 7. Push your local commits to the remote repo.
+
 ```css
 git push -u origin <your_branch_name>
 ```
@@ -96,6 +107,5 @@ git push -u origin <your_branch_name>
 8. Create a Pull Request.
 
 9. Congratulations! 🎉 you've made your contribution.
-
 
 ---
