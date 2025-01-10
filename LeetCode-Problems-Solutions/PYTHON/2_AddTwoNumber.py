@@ -27,8 +27,7 @@ class Solution:
 		prev = None
 		while curr1 is not None or curr2 is not None:
 		# while both lists have atleast one node
-			sum = carry + (curr1.data if curr1 else 0) + 
-				(curr2.data if curr2 else 0)
+			sum = carry + (curr1.data if curr1 else 0) + (curr2.data if curr2 else 0)
 			carry = (1 if sum >= 10 else 0)
 			sum = sum % 10
 			temp = Node(sum)
@@ -71,7 +70,7 @@ def printList(n):
 		print(n.data, end = ' ')
 		n = n.next
 	print()
-  
+
 if __name__ == "__main__":
 	# take a first list
 	arr1 = [7, 5, 9, 4, 6]
