@@ -7,29 +7,49 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
-        # if only head is there then there's no middle node so return None
+        # Edge case: if there's only one node, return None
         if not head.next:
             return None
-        
-        # Else create a dummy node at the start of the list so the list will be like dummy->1->2->3->4->5
-        dummy = ListNode()  
+
+        # Create a dummy node to handle edge cases (like deleting the head)
+        dummy = ListNode()
         dummy.next = head
-        
-        # Initialize two pointers slow and fast
-        s = dummy
-        f = head
-        
-        # increment slow by one and fast by two
-        while f and f.next:
-            f = f.next.next
-            s = s.next
-            
 
-        # After the above loop slow will be automatically at a position one node behind our target node 
-        s.next = s.next.next
+        # Initialize two pointers: slow and fast
+        slow = dummy
+        fast = head
 
-        # delete the target node and return the original list
+        # Move slow by one and fast by two
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+
+        # Delete the middle node
+        slow.next = slow.next.next
+
         return head
+
+# Helper function to print the list
+def print_list(head):
+    while head:
+        print(head.val, end=" -> ")
+        head = head.next
+    print("None")
+
+# Example usage
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+solution = Solution()
+new_head = solution.deleteMiddle(head)
+
+# Print the updated list
+print_list(new_head)  # Expected output: 1 -> 2 -> 4 -> 5 -> None
