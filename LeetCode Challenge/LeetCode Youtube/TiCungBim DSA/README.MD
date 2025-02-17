@@ -1,1 +1,1 @@
-https://www.youtube.com/@TiCungBimDSA/playlists
+[TiCungBimDSA](https://www.youtube.com/@TiCungBimDSA/videos)
