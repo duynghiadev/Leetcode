@@ -1,6 +1,12 @@
 // Name: Tanya Gupta
 // Date: 02/10/2022
 
+#include <vector>
+#include <unordered_map>
+
+using std::unordered_map;
+using std::vector;
+
 class Solution
 {
 public:
