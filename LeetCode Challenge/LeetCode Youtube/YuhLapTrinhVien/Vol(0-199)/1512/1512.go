@@ -50,7 +50,7 @@ func numIdenticalPairs_2(nums []int) int {
 
 func main() {
 	nums := []int{1, 2, 3, 1, 1, 3}
-	// fmt.Println("Total Good Pairs O(n^2):", numIdenticalPairs(nums))
-	// fmt.Println("Total Good Pairs O(n):", numIdenticalPairs_1(nums))
+	fmt.Println("Total Good Pairs O(n^2):", numIdenticalPairs(nums))
+	fmt.Println("Total Good Pairs O(n):", numIdenticalPairs_1(nums))
 	fmt.Println("Total Good Pairs using map:", numIdenticalPairs_2(nums))
 }
