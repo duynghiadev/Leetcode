@@ -1,57 +1,41 @@
 /*
- * 🚶 Path Crossing Checker
+ * 💰 Average Salary Calculator
  * ====================
  *
  * 📝 How it works:
- * 1. Start at origin (0,0) ⭐
- * 2. Track all visited points in a set
- * 3. Move according to path (N↑, S↓, E→, W←)
- * 4. If we revisit any point → return true
+ * 1. Find minimum and maximum salaries in the array
+ * 2. Calculate sum of all salaries
+ * 3. Subtract min and max from sum
+ * 4. Divide by (n-2) to get average
  *
- * 🎯 Example: "NESWW"
- * Start: (0,0) ⭐
- * N → (0,1)  ↑
- * E → (1,1)  →
- * S → (1,0)  ↓
- * W → (0,0)  ← (visited before! → true)
- * W → (-1,0) ←
+ * 🎯 Example: [4000, 3000, 1000, 2000]
+ * Min: 1000 ⬇
+ * Max: 4000 ⬆
+ * Sum: 4000 + 3000 + 1000 + 2000 = 10000
+ * Sum (excl. min & max): 10000 - 1000 - 4000 = 5000
+ * Average: 5000 / 2 = 2500.0
  */
-function isPathCrossing(path: string): boolean {
-  // Initialize set to store visited points
-  const visited = new Set<string>();
-  let x = 0,
-    y = 0;
-  visited.add(`${x},${y}`); // Mark origin as visited
+function average(salary: number[]): number {
+  // Initialize min, max, and sum
+  let minSalary = salary[0];
+  let maxSalary = salary[0];
+  let sum = 0;
 
-  // Process each direction in the path
-  for (const dir of path) {
-    // Update coordinates based on direction
-    switch (dir) {
-      case "N": // Move north (↑)
-        y++;
-        break;
-      case "S": // Move south (↓)
-        y--;
-        break;
-      case "E": // Move east (→)
-        x++;
-        break;
-      case "W": // Move west (←)
-        x--;
-        break;
+  // Find min, max, and sum in one pass
+  for (const s of salary) {
+    if (s < minSalary) {
+      minSalary = s; // Update min
     }
-
-    // Check if current point was visited
-    const point = `${x},${y}`;
-    if (visited.has(point)) {
-      return true; // Path crosses itself!
+    if (s > maxSalary) {
+      maxSalary = s; // Update max
     }
-    visited.add(point); // Mark point as visited
+    sum += s; // Add to sum
   }
 
-  return false; // No crossing found
+  // Calculate average excluding min and max
+  return (sum - minSalary - maxSalary) / (salary.length - 2);
 }
 
 // Test cases
-console.log(isPathCrossing("NES")); // Output: false
-console.log(isPathCrossing("NESWW")); // Output: true
+console.log(average([4000, 3000, 1000, 2000])); // Output: 2500.00000
+console.log(average([1000, 2000, 3000])); // Output: 2000.00000
